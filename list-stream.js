@@ -13,9 +13,13 @@ function ListStream (options, callback) {
   }
 
   this._chunks = []
-  this.__defineGetter__ && this.__defineGetter__('length', function () {
-    return this._chunks.length
-  });
+  Object.defineProperty && Object.defineProperty(
+      this
+    , 'length'
+    , { enumerable: true, configurable: true, get: function () {
+        return this._chunks.length
+      }}
+  )
 
   if (typeof callback == 'function') {
     this._callback = callback
