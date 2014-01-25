@@ -1,0 +1,31 @@
+{
+  "name": "list-stream",
+  "version": "0.0.0",
+  "description": "Collect chunks / objects from a readable stream, write obejcts / chunks to a writable stream",
+  "main": "list-stream.js",
+  "scripts": {
+    "test": "node test.js | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rvagg/list-stream.git"
+  },
+  "homepage": "https://github.com/rvagg/list-stream",
+  "authors": [
+    "Rod Vagg <rod@vagg.org> (https://github.com/rvagg)"
+  ],
+  "keywords": [
+    "buffer",
+    "stream"
+  ],
+  "license": "MIT +no-false-attribs",
+  "dependencies": {
+    "readable-stream": "~1.0.25",
+    "xtend": "~2.1.2"
+  },
+  "devDependencies": {
+    "tape": "~2.3.2",
+    "faucet": "0.0.0",
+    "through2": "~0.4.1"
+  }
+}
