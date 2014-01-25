@@ -4,6 +4,8 @@
 
 **Collect chunks / objects from a readable stream, write obejcts / chunks to a writable stream**
 
+[![NPM](https://nodei.co/npm/list-stream.png?downloads=true)](https://nodei.co/npm/list-stream/)
+
 Built on a [DuplexStream](http://nodejs.org/docs/latest/api/stream.html#stream_class_stream_duplex), **ListStream** can collect the chunks as they come in so you can use them later as an array, or pipe them on to another stream.
 
 Using the same callback style as **[bl](https://github.com/rvagg/bl)** and a similar style to **[concat-stream](https://github.com/maxogden/concat-stream)**, you can use **ListStream** as a terminal stream collecting the chunks or objects for use once the stream has ended. This is particularly helpful for object streams where each chunk is a discrete object.
