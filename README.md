@@ -4,7 +4,7 @@
 
 **Collect chunks / objects from a readable stream, write obejcts / chunks to a writable stream**
 
-[![NPM](https://nodei.co/npm/list-stream.png?downloads=true)](https://nodei.co/npm/list-stream/)
+[![NPM](https://nodei.co/npm/list-stream.svg)](https://nodei.co/npm/list-stream/)
 
 Built on a [DuplexStream](http://nodejs.org/docs/latest/api/stream.html#stream_class_stream_duplex), **ListStream** can collect the chunks as they come in so you can use them later as an array, or pipe them on to another stream.
 
