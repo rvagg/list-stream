@@ -20,8 +20,8 @@
   ],
   "license": "MIT +no-false-attribs",
   "dependencies": {
-    "readable-stream": "~1.0.25",
-    "xtend": "~2.1.2"
+    "readable-stream": "~2.0.5",
+    "xtend": "~4.0.1"
   },
   "devDependencies": {
     "tape": "~2.3.2",
