@@ -1,21 +1,21 @@
-var test       = require('tape')
-  , xtend      = require('xtend')
-  , fs         = require('fs')
-  , os         = require('os')
-  , path       = require('path')
-  , through2   = require('through2')
-  , crypto     = require('crypto')
-  , ListStream = require('./')
+const test = require('tape')
+const xtend = require('xtend')
+const fs = require('fs')
+const os = require('os')
+const path = require('path')
+const through2 = require('through2')
+const crypto = require('crypto')
+const ListStream = require('./')
 
 test('collect list of objects from write()s', function (t) {
-  var expectedObjects = [
-      'foo'
-    , 'bar'
-    , { obj: true }
-    , [ 1, 2, 3 ]
+  const expectedObjects = [
+    'foo',
+    'bar',
+    { obj: true },
+    [1, 2, 3]
   ]
 
-  var ls = ListStream.obj(function (err, data) {
+  const ls = ListStream.obj(function (err, data) {
     t.notOk(err, 'no error')
     t.deepEqual(data, xtend(expectedObjects), 'got expected objects')
     t.end()
@@ -28,20 +28,20 @@ test('collect list of objects from write()s', function (t) {
 })
 
 test('collect list of objects from pipe()', function (t) {
-  var expectedObjects = [
-      'foo'
-    , 'bar'
-    , { obj: true }
-    , [ 1, 2, 3 ]
+  const expectedObjects = [
+    'foo',
+    'bar',
+    { obj: true },
+    [1, 2, 3]
   ]
 
-  var ls = ListStream.obj(function (err, data) {
+  const ls = ListStream.obj(function (err, data) {
     t.notOk(err, 'no error')
     t.deepEqual(data, xtend(expectedObjects), 'got expected objects')
     t.end()
   })
 
-  var t2 = through2.obj()
+  const t2 = through2.obj()
   t2.pipe(ls)
 
   expectedObjects.forEach(function (o) {
@@ -50,11 +50,10 @@ test('collect list of objects from pipe()', function (t) {
   t2.end()
 })
 
-
 test('collects buffers from binary stream', function (t) {
-  var expected = Array.apply(null, Array(20)).map(function () { return crypto.randomBytes(32) })
-    , ls       = ListStream(verify)
-    , t2       = through2()
+  const expected = Array.apply(null, Array(20)).map(function () { return crypto.randomBytes(32) })
+  const ls = ListStream(verify)
+  const t2 = through2()
 
   t2.pipe(ls)
 
@@ -66,21 +65,19 @@ test('collects buffers from binary stream', function (t) {
   function verify (err, data) {
     t.notOk(err, 'no error')
     t.equal(data.length, expected.length, 'got expected number of buffers')
-    for (var i = 0; i < data.length; i++) {
+    for (let i = 0; i < data.length; i++) {
       t.ok(Buffer.isBuffer(data[i]), 'got buffer at #' + i)
       t.equal(data[i].toString('hex'), expected[i].toString('hex'), 'got same buffer value at #' + i)
     }
     t.end()
   }
-
 })
 
-
 test('duplexicity', function (t) {
-  var expected = Array.apply(null, Array(20)).map(function () { return crypto.randomBytes(32) })
-    , tmpfile  = path.join(os.tmpDir(), '_list-stream-test.' + process.pid)
-    , t2       = through2()
-    , ls       = new ListStream()
+  const expected = Array.apply(null, Array(20)).map(function () { return crypto.randomBytes(32) })
+  const tmpfile = path.join(os.tmpdir(), '_list-stream-test.' + process.pid)
+  const t2 = through2()
+  const ls = new ListStream()
 
   t2.pipe(ls)
 

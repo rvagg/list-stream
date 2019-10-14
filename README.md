@@ -1,6 +1,6 @@
 # ListStream
 
-[![Build Status](https://secure.travis-ci.org/rvagg/list-stream.png)](http://travis-ci.org/rvagg/list-stream)
+[![Build Status](https://api.travis-ci.org/rvagg/list-stream.svg?branch=master)](http://travis-ci.org/rvagg/list-stream)
 
 **Collect chunks / objects from a readable stream, write obejcts / chunks to a writable stream**
 
@@ -127,4 +127,4 @@ Create a full duplicate of this `ListStream`. Each item in the list will be `.ap
 
 ## License
 
-**ListStream** is Copyright (c) 2014 Rod Vagg [@rvagg](https://twitter.com/rvagg) and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.
+**ListStream** is Copyright (c) 2014 Rod Vagg [@rvagg](https://twitter.com/rvagg) and licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE.md file for more details.
