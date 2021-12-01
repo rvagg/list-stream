@@ -78,6 +78,8 @@ ListStream.prototype.end = function (chunk) {
     this._callback(null, this._chunks)
     this._callback = null
   }
+
+  return this
 }
 
 ListStream.prototype.duplicate = function () {
