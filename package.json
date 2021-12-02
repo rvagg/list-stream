@@ -1,6 +1,6 @@
 {
   "name": "list-stream",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Collect chunks / objects from a readable stream, write obejcts / chunks to a writable stream",
   "main": "list-stream.js",
   "scripts": {
